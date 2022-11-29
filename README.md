@@ -3,17 +3,9 @@
 This GitHub action installs [`qpdf`](https://github.com/qpdf/qpdf):
 
 ```yaml
-- uses: yegor256/qpdf-action@latest
+- uses: yegor256/qpdf-action@master
 ```
 
-## How to Contribute
+I'm sorry, but it works on Ubuntu only. If you know how to make it work no MacOS and Windows, please, submit a pull request, I will gladly accept it.
 
-In order to test this action, just run:
-
-```bash
-$ make test
-```
-
-This should build a new Docker image and then try to use it
-in order to render a simple `test.tex` document. You need to have
-[Docker](https://docs.docker.com/get-docker/) installed.
+Also, there is no caching now. This means that every time it will take about 10 minutes to install qpdf, on every single build. This is terrible, but I don't know how to fix this. If you know, please submit a pull request.

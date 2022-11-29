@@ -22,17 +22,16 @@
 ---
 name: 'qpdf-action'
 description: 'Install qpdf'
-branding:
-  icon: alert-triangle
-  color: orange
 runs:
-  using: "composite"
+  using: 'composite'
   steps:
     - uses: actions/checkout@v3
       with:
         repository: 'qpdf/qpdf'
         path: 'qpdf'
-    - run: cd qpdf && cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --build build && cmake --install
+    - run: cd qpdf && cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --build build
+      shell: bash
+    - run: cmake --install /usr/local/bin
       shell: bash
     - run: qpdf --version
       shell: bash

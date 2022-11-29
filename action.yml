@@ -31,7 +31,10 @@ runs:
     - uses: actions/checkout@v3
       with:
         repository: 'qpdf/qpdf'
+        path: 'qpdf'
     - run: cd qpdf && cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --build build && cmake --install
       shell: bash
     - run: qpdf --version
+      shell: bash
+    - run: cd .. && rm -rf qpdf
       shell: bash

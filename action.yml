@@ -31,7 +31,7 @@ runs:
         path: 'qpdf'
     - run: cd qpdf && cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --build build
       shell: bash
-    - run: cmake --install /usr/local/bin
+    - run: sudo cmake --install /usr/local/bin
       shell: bash
     - run: qpdf --version
       shell: bash

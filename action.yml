@@ -34,7 +34,7 @@ runs:
         sudo apt-get install -y libssl-dev libjpeg-dev
       shell: bash
     - run: |
-        cd qpdf
+        cd qpdf || exit 1
         cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo
         cmake --build build
         sudo cmake --install build

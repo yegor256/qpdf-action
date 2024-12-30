@@ -14,6 +14,6 @@ make it work no MacOS and Windows, please, submit a pull
 request, I will gladly accept it.
 
 Also, there is no caching now. This means that every time it will
-take about 10 minutes to install qpdf, on every single build. This is
+take about a few minutes to install qpdf, on every single build. This is
 terrible, but I don't know how to fix this. If you know, please
 submit a pull request.

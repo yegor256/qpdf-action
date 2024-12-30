@@ -29,13 +29,15 @@ runs:
       with:
         repository: 'qpdf/qpdf'
         path: 'qpdf'
-    - run: cd qpdf && cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --build build
-      shell: bash
-    - run: cd qpdf && sudo cmake --install build
-      shell: bash
-    - run: cd .. && rm -rf qpdf
-      shell: bash
-    - run: export LD_LIBRARY_PATH=/usr/local/lib; sudo ldconfig
-      shell: bash
-    - run: qpdf --version
+    - run: |
+        cd qpdf
+        cmake -S . -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        cmake --build build
+        cd qpdf
+        sudo cmake --install build
+        cd ..
+        rm -rf qpdf
+        export LD_LIBRARY_PATH=/usr/local/lib
+        sudo ldconfig
+        qpdf --version
       shell: bash

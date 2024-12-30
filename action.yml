@@ -31,7 +31,7 @@ runs:
         path: 'qpdf'
     - run: |
         sudo apt-get update
-        sudo apt-get install -y libssl-dev
+        sudo apt-get install -y libssl-dev libjpeg-dev
       shell: bash
     - run: |
         cd qpdf

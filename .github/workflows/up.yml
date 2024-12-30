@@ -20,13 +20,28 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 ---
-name: test
-on:
+name: up
+'on':
   push:
-  pull_request:
+    branches:
+      - master
+    tags:
+      - '*'
 jobs:
-  test:
-    runs-on: ubuntu-20.04
+  up:
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./
+      - run: |-
+          git fetch --tags --force && \
+          latest=$(git tag --sort=creatordate | tail -1) && \
+          export latest && \
+          sed -E -i "s/latexmk-action@.+$/latexmk-action@${latest}/g" README.md
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: version-up
+          commit-message: 'new version ${{ env.latest }} in README'
+          delete-branch: true
+          title: 'New version ${{ env.latest }} in README'
+          assignees: yegor256
+          base: master

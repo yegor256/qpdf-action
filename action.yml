@@ -30,8 +30,8 @@ runs:
         repository: 'qpdf/qpdf'
         path: 'qpdf'
     - run: |
-        sudo apt-get update
-        sudo apt-get install -y libssl-dev libjpeg-dev
+        sudo apt-get update --yes --fix-missing
+        sudo apt-get install --yes libssl-dev libjpeg-dev
       shell: bash
     - run: |
         cd qpdf || exit 1

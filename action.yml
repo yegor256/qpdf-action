@@ -6,7 +6,7 @@ description: 'Install qpdf'
 runs:
   using: 'composite'
   steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         repository: 'qpdf/qpdf'
         path: 'qpdf'
